@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+      <script src="moment.js"></script>
+      <title>First AJAX</title>
+   </head>
+   <body>
+
+      <main>
+
+         <div class="grid-container">
+
+         </div>
+
+         <form class="hidden" action="index.html" method="post">
+            <div class="month-coiche">
+               <label>Scegli il mese: </label>
+               <select id="month" class="" name="">
+                  <option value="0"> --- </option>
+                  <option value="1">Gennaio</option>
+                  <option value="2">Febbraio</option>
+                  <option value="3">Marzo</option>
+                  <option value="4">Aprile</option>
+                  <option value="5">Maggio</option>
+                  <option value="6">Giugno</option>
+                  <option value="7">Luglio</option>
+                  <option value="8">Agosto</option>
+                  <option value="9">Settembre</option>
+                  <option value="10">Ottobre</option>
+                  <option value="11">Novembre</option>
+                  <option value="12">Dicembre</option>
+               </select>
+            </div>
+            <div class="year-coiche">
+               <label>Scegli l'anno: </label>
+               <input id="year" type="text" name="" value="" placeholder="Inserisci un anno tra 2000 e 2017">
+            </div>
+            <div class="submit-btn">
+               <input type="submit" name="" value="Show Holidays">
+            </div>
+         </form>
+
+         <div class="holidays-list hidden">
+            
+         </div>
+
+      </main>
+
+
+      <script type="text/javascript" src="main.js"></script>
+   </body>
+</html>
