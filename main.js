@@ -28,6 +28,9 @@ $(document).ready(function(){
       var id = this.id;
 
 
+
+
+
       $("form").submit(function(){
 
          var monthIsCorrect = false;
@@ -35,6 +38,8 @@ $(document).ready(function(){
 
          var currentMonth = $("#month").val();
          var currentYear = $("#year").val();
+
+         console.log(moment([currentYear, 0, 2]));
 
          /**** Controllo immissione dati corretta da migliorare ****/
 
@@ -66,12 +71,31 @@ $(document).ready(function(){
             },
             success : function(data) {
                console.log(data);
-               console.log(data.holidays.length);
                var holidayListBox = $('.holidays-list');
+
+               var firstYearDay = moment(currentYear + "-01-02", "YYYY-MM-DD"); /*Perchè mettere 02??????*/
+               console.log("firstYearDay: " + firstYearDay);
+
+
+               var datet = moment("2017-04-17");
+               var d = datet.day()
+               
+
                holidayListBox.removeClass('hidden');
+
                for (var i = 0; i < data.holidays.length; i++) {
+
+                  var thisHolidayDate = moment(data.holidays[i].date);
+
+                  console.log(data.holidays[i].date.isoW);
+
+                  var difference = thisHolidayDate.diff(firstYearDay, 'days');
+
+
+
                   holidayListBox.append(
-                     holidayDivOpen + data.holidays[i].name + holidayDivClose
+                     holidayDivOpen + data.holidays[i].name + ": " + data.holidays[i].date +
+                     " giorni passati dal: " + currentYear + "-01-01: " + difference + holidayDivClose
                   );
                }
 
